@@ -19,9 +19,9 @@ import Box from "@mui/material/Box";
 import React from "react";
 //<img src="https://media.dominospizza.lt/menu/product_osg_image/2022/04/11/BYO_480%D1%85480.png"></img>
 function PizzaStore() {
-  console.log("RELOAD");
   const [value, setValue] = React.useState("");
-  const [toppings, setToppings] = React.useState({
+  const [order, setOrder] = React.useState({
+    size: "",
     pepperoni: false,
     mushrooms: false,
     olives: false,
@@ -32,13 +32,35 @@ function PizzaStore() {
     setValue(event.target.value);
   };
 
-  const handleToppingsChange = (event) => {
-    setToppings({
-      ...toppings,
-      [event.target.name]: event.target.checked,
-    });
+  const handleOrderChange = (event) => {
+    if (event.target.name === "size") {
+      setOrder({
+        ...order,
+        [event.target.name]: event.target.value,
+      });
+    } else {
+      setOrder({
+        ...order,
+        [event.target.name]: event.target.checked,
+      });
+    }
   };
-  const { pepperoni, mushrooms, olives, cheese } = toppings;
+
+  console.log(order);
+
+  const { pepperoni, mushrooms, olives, cheese } = order;
+
+  const sendOrder = () => {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ order }),
+    };
+
+    fetch()
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  };
 
   return (
     <Box height="90vh" display="flex" alignItems="center">
@@ -54,7 +76,11 @@ function PizzaStore() {
           <Typography variant="h5">React Pizza Order System</Typography>
           <FormControl>
             <FormLabel>Pizza Size</FormLabel>
-            <RadioGroup value={value} onChange={handleChange}>
+            <RadioGroup
+              name="size"
+              value={order.size}
+              onChange={handleOrderChange}
+            >
               <FormControlLabel
                 value="small"
                 control={<Radio />}
@@ -75,7 +101,7 @@ function PizzaStore() {
                 control={
                   <Checkbox
                     checked={pepperoni}
-                    onChange={handleToppingsChange}
+                    onChange={handleOrderChange}
                     name="pepperoni"
                   />
                 }
@@ -85,7 +111,7 @@ function PizzaStore() {
                 control={
                   <Checkbox
                     checked={mushrooms}
-                    onChange={handleToppingsChange}
+                    onChange={handleOrderChange}
                     name="mushrooms"
                   />
                 }
@@ -95,7 +121,7 @@ function PizzaStore() {
                 control={
                   <Checkbox
                     checked={olives}
-                    onChange={handleToppingsChange}
+                    onChange={handleOrderChange}
                     name="olives"
                   />
                 }
@@ -105,7 +131,7 @@ function PizzaStore() {
                 control={
                   <Checkbox
                     checked={cheese}
-                    onChange={handleToppingsChange}
+                    onChange={handleOrderChange}
                     name="cheese"
                   />
                 }
@@ -113,6 +139,7 @@ function PizzaStore() {
               />
             </FormControl>
           </Box>
+          <Button onClick={sendOrder}>Order</Button>
         </Grid>
       </Grid>
     </Box>
