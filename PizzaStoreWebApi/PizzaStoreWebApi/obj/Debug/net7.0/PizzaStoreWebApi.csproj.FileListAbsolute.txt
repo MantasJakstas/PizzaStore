@@ -1,0 +1,7 @@
+C:\Projects\PizzaStore\PizzaStoreWebApi\PizzaStoreWebApi\obj\Debug\net7.0\PizzaStoreWebApi.csproj.AssemblyReference.cache
+C:\Projects\PizzaStore\PizzaStoreWebApi\PizzaStoreWebApi\obj\Debug\net7.0\PizzaStoreWebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\PizzaStore\PizzaStoreWebApi\PizzaStoreWebApi\obj\Debug\net7.0\PizzaStoreWebApi.AssemblyInfoInputs.cache
+C:\Projects\PizzaStore\PizzaStoreWebApi\PizzaStoreWebApi\obj\Debug\net7.0\PizzaStoreWebApi.AssemblyInfo.cs
+C:\Projects\PizzaStore\PizzaStoreWebApi\PizzaStoreWebApi\obj\Debug\net7.0\PizzaStoreWebApi.csproj.CoreCompileInputs.cache
+C:\Projects\PizzaStore\PizzaStoreWebApi\PizzaStoreWebApi\obj\Debug\net7.0\PizzaStoreWebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Projects\PizzaStore\PizzaStoreWebApi\PizzaStoreWebApi\obj\Debug\net7.0\PizzaStoreWebApi.MvcApplicationPartsAssemblyInfo.cache
